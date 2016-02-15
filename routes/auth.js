@@ -18,8 +18,6 @@ router.post('/login', (req, res) => {
       return;
     }else if (user.token) {
       var token = user.token();
-      user = user.toObject();
-      delete user.password;
       res.status(200).send({token:token, user:user});
     }else{
       res.status(401).send(user);

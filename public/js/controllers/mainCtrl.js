@@ -2,16 +2,25 @@
 
 angular.module('testApp').controller('mainCtrl', mainCtrl);
 
-mainCtrl.$inject = ['$scope', 'beerSvc'];
+mainCtrl.$inject = ['$scope', 'beerSvc', '$state'];
 
-function mainCtrl ($scope, beerSvc) {
+function mainCtrl ($scope, beerSvc, $state) {
 
   $scope.done = false;
 
-  $scope.getRandomBeer () {
+  $scope.goLogin = function () {
+    $state.go('login');
+  }
+
+  $scope.getRandomBeer  = function() {
     beerSvc.getRandom(function (err, beer){
       if (err) return console.log(err);
-      $scope.beer = beer;
+      console.log(beer.data);
+      if (!beer.data.description) {
+        beer.data.description = "description not available."
+      }
+      $scope.beer = beer.data;
+      $scope.done = true;
     });
   }
 

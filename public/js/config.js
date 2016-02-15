@@ -4,7 +4,8 @@ angular.module('testApp').config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: '/html/home.html'
+      templateUrl: '/html/home.html',
+      controller: 'mainCtrl'
     })
     .state('register', {
       url: '/register',

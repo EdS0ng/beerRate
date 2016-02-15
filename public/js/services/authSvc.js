@@ -17,8 +17,8 @@ function authSvc ($http, $rootScope) {
   this.login = function (user, cb) {
     $http.post('/auth/login', user).then(function (success){
       setAuthHeader(success.token);
-      $rootScope.$broadcast = 'loginSuccess';
-      cb(null, success.user);
+      $rootScope.$broadcast('loginSuccess');
+      cb(null, success.data.user);
     }, function (err) {
       cb(err);
     });

@@ -1,0 +1,10 @@
+.beerDesc {
+  display: inline-block;
+}
+.beer {
+  width: 100%;
+  margin-bottom: 1vw;
+}
+.beer_data span{
+  display: block;
+}

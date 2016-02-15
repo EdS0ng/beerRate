@@ -8,8 +8,8 @@ function beerSvc ($http) {
   this.beers = [];
 
   this.getRandom = function (cb) {
-    $http.get('/beer').then(function (success){
-      cb(null, success);
+    $http.get('/beers').then(function (success){
+      cb(null, success.data);
     }, function (err) {
       cb(err);
     })

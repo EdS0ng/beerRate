@@ -32,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //routes
 app.use('/', require('./routes/index'));
 app.use('/auth', require('./routes/auth'));
+app.use('/beers', require('./routes/beers'));
 
 app.use(function(req, res){
   res.status(404).render('404');

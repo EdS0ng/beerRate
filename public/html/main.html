@@ -17,8 +17,12 @@
   </div>
   <button class="btn btn-default" ng-click="getRandomBeer()">Get Another!</button>
   <button class="btn btn-success" ng-click="sample()">Sampled?</button>
-  <div class="sampled_checkbox" ng-show="showRate">
-    <label class="checkbox-inline"><input type="checkbox" ng-model="sampledCheck.value1" ng-click="saveSampledChoice()">Yes</label>
-    <label class="checkbox-inline"><input type="checkbox" ng-model="sampledCheck.value2" ng-click="saveSampledChoice()">No</label>
+  <ng-check show="showRate"></ng-check>
+  <div ng-show="rateAndComment" class="form-group">
+    <label for="rate">Rate (1-10, 10 is highest): </label>
+    <input id="rate" type="number" min="1" max="10" class="form-control" ng-model="rate.rating">
+    <label for="comment"></label>
+    <input id="comment" type="text" class="form-control" ng-model="rate.comment">
+    <button class="btn btn-success" ng-click="saveUserRate(rate)">Save</button>
   </div>
 </div>

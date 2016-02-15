@@ -29,15 +29,15 @@ function mainCtrl ($scope, beerSvc, $state) {
   $scope.getRandomBeer();
 
   $scope.sample = function () {
-    $scope.showRate = !scope.showRate;
+    $scope.showRate = !$scope.showRate;
     $scope.sampledCheck = {
       value1:false,
       value2:false
     }
   }
 
-  $scope.saveSampledChoice = function () {
-    if ($scope.sampledCheck.value1 = true) {
+  $scope.saveSampledChoice = function (target) {
+    if (target=1) {
       $scope.sampledCheck.value2 = false;
       $scope.rateAndComment = true;
     }else{

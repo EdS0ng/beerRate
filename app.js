@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
-
+require('dotenv').load();
 var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost/beerRate';
 
 mongoose.connect(mongoUrl, function(err){
@@ -22,17 +22,22 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+//General Middleware
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded( {extended: true} ));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//routes
 app.use('/', require('./routes/index'));
+app.use('/auth', require('./routes/auth'));
 
 app.use(function(req, res){
   res.status(404).render('404');
 });
+
+
 
 var server = http.createServer(app);
 

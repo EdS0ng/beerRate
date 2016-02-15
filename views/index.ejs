@@ -13,7 +13,10 @@
 
     <script src='/js/module.js'></script>
     <script src='/js/config.js'></script>
+    <script src='/js/services/authSvc.js'></script>
     <script src='/js/controllers/navCtrl.js'></script>
+    <script src='/js/controllers/registerCtrl.js'></script>
+    <script src='/js/controllers/loginCtrl.js'></script>
 
   </head>
   <body ng-app='testApp'>
@@ -32,10 +35,12 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a ui-sref="home">Home</a></li>
+            <li ng-if="!loggedIn"><a ui-sref="home">Home</a></li>
+            <li ng-if="loggedIn"><a ui-sref="main">Home</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-
+            <li ng-if="!loggedIn"><a ui-sref="login">Login</a></li>
+            <li ng-if="!loggedIn"><a ui-sref="register">Register</a></li>
           </ul>
         </div>
       </div>

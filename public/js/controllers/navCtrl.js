@@ -1,7 +1,13 @@
 'use strict';
 
-var app = angular.module('testApp');
+angular.module('testApp').controller('navbarCtrl', navbarCtrl);
 
-app.controller('navbarCtrl', function() {
+navbarCtrl.$inject = ['$scope'];
 
-});
+function navbarCtrl ($scope) {
+  $scope.loggedIn = false;
+
+  $scope.$on('loginSuccess', function () {
+    $scope.loggedIn = true;
+  })
+}

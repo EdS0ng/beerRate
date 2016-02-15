@@ -49,7 +49,7 @@ userSchema.methods.token = function() {
   var payload = {
     email: this.email,
     _id: this._id,
-    exp: Moment().add(1, 'day').unix()
+    exp: moment().add(1, 'day').unix()
   };
   var token = jwt.encode(payload, JWT_SECRET);
   return token;

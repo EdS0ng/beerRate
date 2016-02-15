@@ -1,3 +1,8 @@
-<div class="container">
-  <h1>Welcome</h1>
+<div class="col-sm-10 col-sm-offset-1 well">
+  <h1>Welcome to the Beer Rating App!</h1>
+  <div class="beer">
+    <h2 ng-hide="done">Getting a Random Beer...</h2>
+    <h2 ng-show="done">{{beer.name}}</h2>
+    <img class="img" ng-src="{{beer.labels.medium}}">
+  </div>
 </div>

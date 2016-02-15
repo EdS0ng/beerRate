@@ -1,5 +1,4 @@
 <div class="col-sm-10 col-sm-offset-1 well">
-  <h1>Welcome to the Beer Rating App!</h1>
   <h2 ng-hide="done">Getting a Random Beer...</h2>
   <h2 ng-show="done">{{beer.name}}</h2>
   <div class="beer">
@@ -17,5 +16,9 @@
     <p class="beerDesc">{{beer.description}}</p>
   </div>
   <button class="btn btn-default" ng-click="getRandomBeer()">Get Another!</button>
-  <button class="btn btn-success" ng-click="sampled()">Sampled?</button>
+  <button class="btn btn-success" ng-click="sample()">Sampled?</button>
+  <div class="sampled_checkbox" ng-show="showRate">
+    <label class="checkbox-inline"><input type="checkbox" ng-model="sampledCheck.value1" ng-click="saveSampledChoice()">Yes</label>
+    <label class="checkbox-inline"><input type="checkbox" ng-model="sampledCheck.value2" ng-click="saveSampledChoice()">No</label>
+  </div>
 </div>

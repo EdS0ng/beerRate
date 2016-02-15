@@ -8,3 +8,6 @@
 .beer_data span{
   display: block;
 }
+.sampled_checkbox {
+  display: inline-block;
+}

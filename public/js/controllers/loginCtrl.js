@@ -13,7 +13,7 @@ function loginCtrl ($scope, authSvc, $state) {
         $scope.err_msg = "An Error Occurred, Please Try Again";
       }else {
         console.log(user);
-        //go to main view
+        $state.go('main');
       }
     })
   }
